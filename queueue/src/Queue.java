@@ -3,19 +3,17 @@ import java.util.ArrayList;
 public class Queue {
     public static void main(String[] args) {
 
-        // Aanmaken van een queue met 5 taken
-        ArrayList<Task> queue = new ArrayList<>();
+        ArrayList<Task> inventory = new ArrayList<>(); // Aanmaken van een inventory, dit is een lijst met taken die op dit moment worden uitgevoerd
+        ArrayList<Task> completedTasksInRound = new ArrayList<>(); // Dit is een lijst met taken die in deze ronde zijn afgerond
+
+        ArrayList<Task> queue = new ArrayList<>(); // Aanmaken van een queue met 5 taken
         queue.add(new Task("Taak1", 5000));
         queue.add(new Task("Taak2", 6000));
         queue.add(new Task("Taak3", 100));
         queue.add(new Task("Taak4", 500));
         queue.add(new Task("Taak5", 300));
 
-        // Aanmaken van een inventory, dit is een lijst met taken die op dit moment worden uitgevoerd
-        ArrayList<Task> inventory = new ArrayList<>();
-
-        // De verstreken tijd, dit is het aantal rondes dat de while loop heeft gedraaid
-        int elapsedRound = 0;
+        int elapsedRound = 0; // De verstreken tijd, dit is het aantal rondes dat de while loop heeft gedraaid
 
         // Zolang de queue niet leeg is of de inventory niet leeg is, blijf de while loop draaien
         while (!queue.isEmpty() || !inventory.isEmpty()) {
@@ -28,8 +26,6 @@ public class Queue {
                 }
             }
 
-            // Dit is een lijst met taken die in deze ronde zijn afgerond
-            ArrayList<Task> completedTasksInRound = new ArrayList<>();
 
             // Loop door alle taken in de inventory
             for (Task task : inventory) {
