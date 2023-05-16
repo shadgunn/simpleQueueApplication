@@ -18,7 +18,6 @@ public class Queue {
         // !queue.isEmpty() zodat de while loop blijft runnen zolang er nog taken in de queue zitten,
         // !inventory.isEmpty() zodat de while loop blijft runnen zolang er nog taken in de inventory zitten
         while (!queue.isEmpty() || !inventory.isEmpty()) {
-            // Hierin wordt bijgehouden hoeveel taken er nog in de inventory passen
             int tasksToAdd = Math.max(0, 3 - inventory.size());
             // Voeg taken toe aan de inventory
             for (int i = 0; i < tasksToAdd; i++) {
@@ -27,8 +26,6 @@ public class Queue {
                 }
             }
 
-
-            // Loop door alle taken in de inventory
             for (Task task : inventory) {
                 // Als de verstreken tijd groter of gelijk is aan de tijd van de taak, dan is de taak afgerond
                 if (elapsedRound >= task.getTime()) {
@@ -42,7 +39,6 @@ public class Queue {
                 inventory.remove(completedTask);
             }
 
-            // Verhoog de verstreken tijd met 1
             elapsedRound++;
         }
     }
