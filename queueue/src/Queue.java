@@ -15,7 +15,7 @@ public class Queue {
         ArrayList<Task> inventory = new ArrayList<>();
 
         // De verstreken tijd, dit is het aantal rondes dat de while loop heeft gedraaid
-        int elapsedTime = 0;
+        int elapsedRound = 0;
 
         // Zolang de queue niet leeg is of de inventory niet leeg is, blijf de while loop draaien
         while (!queue.isEmpty() || !inventory.isEmpty()) {
@@ -34,7 +34,7 @@ public class Queue {
             // Loop door alle taken in de inventory
             for (Task task : inventory) {
                 // Als de verstreken tijd groter of gelijk is aan de tijd van de taak, dan is de taak afgerond
-                if (elapsedTime >= task.getTime()) {
+                if (elapsedRound >= task.getTime()) {
                     System.out.println(task.getName() + " duurt is afgerond.");
                     completedTasksInRound.add(task);
                 }
@@ -46,7 +46,7 @@ public class Queue {
             }
 
             // Verhoog de verstreken tijd met 1
-            elapsedTime++;
+            elapsedRound++;
         }
     }
 }
