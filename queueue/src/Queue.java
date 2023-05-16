@@ -7,15 +7,16 @@ public class Queue {
         ArrayList<Task> completedTasksInRound = new ArrayList<>(); // Dit is een lijst met taken die in deze ronde zijn afgerond
 
         ArrayList<Task> queue = new ArrayList<>(); // Aanmaken van een queue met 5 taken
-        queue.add(new Task("Taak1", 5000));
-        queue.add(new Task("Taak2", 6000));
-        queue.add(new Task("Taak3", 100));
-        queue.add(new Task("Taak4", 500));
-        queue.add(new Task("Taak5", 300));
+        queue.add(new Task("Taak 1", 5000));
+        queue.add(new Task("Taak 2", 6000));
+        queue.add(new Task("Taak 3", 100));
+        queue.add(new Task("Taak 4", 500));
+        queue.add(new Task("Taak 5", 300));
 
         int elapsedRound = 0; // De verstreken tijd, dit is het aantal rondes dat de while loop heeft gedraaid
 
-        // Zolang de queue niet leeg is of de inventory niet leeg is, blijf de while loop draaien
+        // !queue.isEmpty() zodat de while loop blijft runnen zolang er nog taken in de queue zitten,
+        // !inventory.isEmpty() zodat de while loop blijft runnen zolang er nog taken in de inventory zitten
         while (!queue.isEmpty() || !inventory.isEmpty()) {
             // Hierin wordt bijgehouden hoeveel taken er nog in de inventory passen
             int tasksToAdd = Math.max(0, 3 - inventory.size());
